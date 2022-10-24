@@ -21,8 +21,8 @@
         <main id="container">
             <h1>OAuth2 Test</h1>
                 <h4><b>Step 1:</b> Get Auth URL</h4>
-                <p>Click the button below to get your auth url.</p>
-                <button id="getCode">Get OAuth URL</button>
+                <p>Click the button below to get your OAuth URL.</p>
+                <button id="getURL">Get OAuth URL</button>
                 <p id="result"></p>
                 <a id="authURL" href target="_blank">Click to authorize</a>
 
@@ -39,13 +39,13 @@
                 <p id="accessToken"></p>
         </main>
         <script type="text/javascript">
-            const getCodeElement = document.getElementById("getCode");
+            const getURLElement = document.getElementById("getURL");
             const resultElement = document.getElementById("result");
             const resultLink = document.getElementById("authURL");
 
             const getAuthURL = "https://b88czy5mdb.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url";
 
-            getCodeElement.onclick = function() {
+            getURLElement.onclick = function() {
                 fetch(getAuthURL)
                     .then(function (response){
                         return response.json();
