@@ -30,7 +30,7 @@ describe('<EventList /> component', () =>{
         expect(EventWrapper.state('showDetails')).toBe(false);
     });
 
-    test('clicking show details button should expand info', () => {
+    test('clicking show details button should expand extra info', () => {
         EventWrapper.find('button.detailsButton').simulate('click');
         expect(EventWrapper.find('.extraDetails')).toHaveLength(1);
     });
@@ -42,7 +42,4 @@ describe('<EventList /> component', () =>{
         expect(EventWrapper.state('showDetails')).toBe(false);
     });
 
-    test('render correct number of events', () => {
-        expect(EventList.find(Event)).toHaveLength(mockData.length);
-    });
 });
