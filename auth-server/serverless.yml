@@ -51,6 +51,7 @@ functions:
 # endpoints:
 #    GET - https://b88czy5mdb.execute-api.us-east-1.amazonaws.com/dev/api/get-auth-url
 #  GET - https://b88czy5mdb.execute-api.us-east-1.amazonaws.com/dev/api/token/{code}
+# GET - https://b88czy5mdb.execute-api.us-east-1.amazonaws.com/dev/api/get-events/{access_token}
 
 # you can overwrite defaults here
 #  stage: dev
