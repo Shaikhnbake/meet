@@ -4,7 +4,7 @@ import './nprogress.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { mockData } from './mock-data';
+// import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
 
 
@@ -12,15 +12,22 @@ class App extends Component {
 
   state = {
     events: [],
-    locations: []
+    locations: [],
+    number: 32
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventNumber) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
       events :
       events.filter((event) => event.location === location);
-      this.setState({ events: locationEvents });
+      
+      eventNumber = number === 32 ? number : eventNumber;
+      
+      this.setState({ 
+        events: locationEvents,
+        number: eventNumber
+      });
     });
   }
 
@@ -28,7 +35,10 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if(this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({ 
+          events, 
+          locations: extractLocations(events) 
+        });
       }
     });
   }
@@ -41,7 +51,7 @@ class App extends Component {
     return (
       <div className='App'>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberOfEvents />
+        <NumberOfEvents number={this.state.number} updateEvents={this.updateEvents}/>
         <EventList events={this.state.events}/>
       </div>
     );
