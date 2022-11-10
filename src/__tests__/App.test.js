@@ -74,19 +74,19 @@ describe('<App /> integration', () => {
 
     test('App passes "number" state as a prop to NumberOfEvents', () => {
         const AppWrapper = mount(<App />);
-        const AppLocationsState = AppWrapper.state('number');
-        expect(AppLocationsState).not.toEqual(undefined);
-        expect(AppWrapper.find(NumberOfEvents).props().events).toEqual(AppLocationsState);
+        const AppNumberState = AppWrapper.state('number');
+        expect(AppNumberState).not.toEqual(undefined);
+        expect(AppWrapper.find(NumberOfEvents).props().number).toEqual(AppNumberState);
         AppWrapper.unmount();
     });
 
     test('get list of events matching the number selected by ther user <NumberOfEvents/>', async () => {
         const AppWrapper = mount(<App />);
         const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-        const selectedIndex = { target: {value: 12 }};
+        const selectedIndex = { target: {value: 2 }};
         await NumberOfEventsWrapper.instance().handleNumberChanged(selectedIndex);
         await getEvents();
-        expect(AppWrapper.state('number')).toEqual(12);
+        expect(AppWrapper.state('events')).toHaveLength(2);
         AppWrapper.unmount();
     });
 
