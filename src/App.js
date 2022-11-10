@@ -22,7 +22,7 @@ class App extends Component {
       events :
       events.filter((event) => event.location === location);
       
-      eventNumber = number === 32 ? number : eventNumber;
+      eventNumber = eventNumber === undefined ? number : eventNumber;
       
       this.setState({ 
         events: locationEvents,
