@@ -86,7 +86,7 @@ describe('<App /> integration', () => {
         const selectedIndex = { target: {value: 2 }};
         await NumberOfEventsWrapper.instance().handleNumberChanged(selectedIndex);
         await getEvents();
-        expect(AppWrapper.state('events')).toHaveLength(2);
+        expect(AppWrapper.state('number')).toEqual(2);
         AppWrapper.unmount();
     });
 

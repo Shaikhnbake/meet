@@ -12,7 +12,7 @@ class Event extends Component {
         const {showDetails} = this.state;
         
         return (
-            <div className="Event">
+            <div className="event">
                 <h1 className="summary">{event.summary}</h1>
                 <p className="eventPreview">
                     {(event.start.dateTime).toString()} <br/>
