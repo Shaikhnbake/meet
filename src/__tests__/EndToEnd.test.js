@@ -11,7 +11,7 @@ describe('show/hide an event details', () => {
             // Can un comment out below code to watch tests being conducted in browser
          //   {headless: false, slowMo: 250, ignoreDefaultArgs: ['--disable-extensions']}
         );
-        page = await puppeteer.newPage();
+        page = await browser.newPage();
         await page.goto('http://localhost:3000/');
         await page.waitForSelector('.event'); 
     });
