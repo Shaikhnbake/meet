@@ -7,6 +7,8 @@ import NumberOfEvents from './NumberOfEvents';
 // import { mockData } from './mock-data';
 import { extractLocations, getEvents } from './api';
 
+import { OfflineAlert } from './Alert.js';
+
 
 class App extends Component {
 
@@ -51,6 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        {!navigator.onLine && ( <OfflineAlert text="Meet App is offline" /> ) }
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberOfEvents number={this.state.number} updateEvents={this.updateEvents}/>
         <EventList events={this.state.events}/>
