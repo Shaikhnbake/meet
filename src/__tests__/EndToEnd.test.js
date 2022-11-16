@@ -1,16 +1,11 @@
 import puppeteer from "puppeteer";
-import CitySearch from "../CitySearch";
-
 
 describe('show/hide an event details', () => {
     let browser;
     let page;
     beforeAll(async () => {
         jest.setTimeout(30000);
-        browser = await puppeteer.launch(
-            // Can un comment out below code to watch tests being conducted in browser
-         //   {headless: false, slowMo: 250, ignoreDefaultArgs: ['--disable-extensions']}
-        );
+        browser = await puppeteer.launch();
         page = await browser.newPage();
         await page.goto('http://localhost:3000/');
         await page.waitForSelector('.event'); 
@@ -26,13 +21,13 @@ describe('show/hide an event details', () => {
     });
 
     test('User can expand an event to see its details', async () => {
-        await page.click('.event .detailsButton-btn');
+        await page.click('.event .detailsButton');
         const eventDetails = await page.$('.event .extraDetails');
         expect(eventDetails).toBeDefined();
     });
 
     test('User can collapse an event to hide its details', async () => {
-        await page.click('.event .detailsButton-btn');
+        await page.click('.event .detailsButton');
         const eventDetails = await page.$('.event .extraDetails');
         expect(eventDetails).toBeNull();
 
