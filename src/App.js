@@ -10,12 +10,10 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
 
 // import { mockData } from './mock-data';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
-
-import { OfflineAlert } from './Alert.js';
+import { OfflineAlert } from './Alert';
 
 
 class App extends Component {
-
   state = {
     events: [],
     locations: [],
