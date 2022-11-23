@@ -9,7 +9,7 @@ class NumberOfEvents extends Component {
     };
 
     handleNumberChanged = (event) => {
-        let value = (event.target.value * 1);
+        let value = parseInt(event.target.value);
 
         if (value > 32 || value < 1) {
             this.setState({
