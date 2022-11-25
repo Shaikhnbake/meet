@@ -40,12 +40,12 @@ class CitySearch extends Component {
     render() {
         return (
             <div className="CitySearch">
-                <div>
-                    <InfoAlert text={this.state.infoText} />
-                </div>
+                <h1><b>CalendarMeet !</b></h1>  
+                <h3>Looking for a specific city?</h3>
                 <input 
                     type="text" 
                     className="city"
+                    placeholder="all cities"
                     value={this.state.query}
                     onChange={this.handleInputChanged}
                     onFocus={() => { this.setState({ showSuggestions: true }) }}
@@ -58,6 +58,7 @@ class CitySearch extends Component {
                         <b>See all cities</b>
                     </li>
                 </ul>
+                <InfoAlert text={this.state.infoText} />
             </div>
 
         );

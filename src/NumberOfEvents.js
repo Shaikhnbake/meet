@@ -31,9 +31,7 @@ class NumberOfEvents extends Component {
 
         return (
             <div>
-                <div>
-                    <ErrorAlert text={this.state.errorText} />
-                </div>
+                <h3>Select a number of Events per page</h3>
                 <input
                     type="number"
                     min='1'
@@ -41,6 +39,7 @@ class NumberOfEvents extends Component {
                     value={this.state.number}
                     onChange={this.handleNumberChanged}
                 />
+                <ErrorAlert text={this.state.errorText} />
             </div>
         );
     }
